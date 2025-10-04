@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autores</title>
+    <style>
+        div{
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="/">Volver al menu</a>
+    <h1>Autores</h1>
+    <hr>
+    {% for autor in autores %}
+    <br>
+    <div>
+        <div><strong>Nombre: </strong>{{autor.nombre}}</div>
+        <div><strong>Nacionalidad: </strong>{{autor.nacionalidad}}</div>
+        <div><strong>Fecha de Nacimiento: </strong>{{autor.fecha_nacimiento}}</div>
+    </div>
+    <br>
+    {% endfor %}
+</body>
+</html>

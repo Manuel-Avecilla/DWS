@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros</title>
+    <style>
+        div{
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="/">Volver al menu</a>
+    <h1>Libros</h1>
+    <hr>
+    {% for libro in libros %}
+    <br>
+    <div>
+        <div><strong>Título: </strong> {{ libro.titulo }}</div>
+        <div><strong>Género: </strong> {{ libro.genero }}</div>
+        <div><strong>Fecha de Publicación: </strong> {{ libro.fecha_publicacion }}</div>
+        <!--
+            'autor' y 'editorial' son claves foráneas en el modelo Libro. 
+            Cuando usamos libro.autor.nombre o libro.editorial.nombre, Django:
+                1. Obtiene el objeto 'libro'.
+                2. Usa el id de la clave foránea para buscar el objeto relacionado en la tabla correspondiente ('Autor' o 'Editorial').
+                3. Accede al campo 'nombre' de ese objeto relacionado y lo muestra.
+                
+            Los enlaces simplemente dirigen a las URLs correspondientes de autores y editoriales.
+        -->
+        <div><strong>Autor: </strong><a href="/autores/">{{ libro.autor.nombre }}</a></div>
+        <div><strong>Editorial: </strong><a href="/editoriales/">{{ libro.editorial.nombre }}</a></div>
+    </div>
+    <br>
+    {% endfor %}
+</body>
+</html>

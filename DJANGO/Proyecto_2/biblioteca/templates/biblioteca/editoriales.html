@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editoriales</title>
+    <style>
+        div{
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="/">Volver al menu</a>
+    <h1>Editoriales</h1>
+    <hr>
+    {% for editorial in editoriales %}
+    <br>
+    <div>
+        <div><strong>Nombre: </strong>{{editorial.nombre}}</div>
+        <div><strong>Ciudad: </strong>{{editorial.ciudad}}</div>
+        <div><strong>Fecha de Creacion: </strong>{{editorial.fecha_creacion}}</div>
+    </div>
+    <br>
+    {% endfor %}
+</body>
+</html>
